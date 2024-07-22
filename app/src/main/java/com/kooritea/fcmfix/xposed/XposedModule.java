@@ -29,7 +29,7 @@ public abstract class XposedModule {
     protected XC_LoadPackage.LoadPackageParam loadPackageParam;
     public static Set<String> allowList = null;
 
-    static final String TAG = "FcmFix";
+    static final String TAG = "fcmfix";
     private static Boolean disableAutoCleanNotification = null;
 
     @SuppressLint("StaticFieldLeak")
@@ -163,7 +163,7 @@ public abstract class XposedModule {
                         if(pref.getFile().canRead() && pref.getBoolean("init", false)){
                             allowList = pref.getStringSet("allowList", null);
                             if(allowList != null && "android".equals(context.getPackageName())){
-                                printLog( "[XSharedPreferences Mode]onUpdateConfig allowList size: " + allowList.size());
+                                printLog( "[XShared-Preferences Mode]onUpdateConfig allowList size: " + allowList.size());
                             }
                             disableAutoCleanNotification = pref.getBoolean("disableAutoCleanNotification", false);
                             loadConfigThread = null;
@@ -269,7 +269,7 @@ public abstract class XposedModule {
     protected void createFcmfixChannel(NotificationManager notificationManager) {
         if(notificationManager.getNotificationChannel("fcmfix") == null){
             NotificationChannel channel = new NotificationChannel("fcmfix", "fcmfix", NotificationManager.IMPORTANCE_HIGH);
-            channel.setDescription("[xposed] fcmfix");
+            channel.setDescription("[xp0sed] fcmfix");
             notificationManager.createNotificationChannel(channel);
         }
     }

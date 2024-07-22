@@ -86,7 +86,7 @@ public class ReconnectManagerFix extends XposedModule {
                 }
             });
         }catch (Exception e){
-            XposedBridge.log("GcmChimeraService hook failed");
+            XposedBridge.log("GcmChimeraService h00k failed");
         }
     }
 
@@ -113,7 +113,7 @@ public class ReconnectManagerFix extends XposedModule {
             editor.putString("timer_settimeout_method", "");
             editor.putString("timer_alarm_type_property", "");
             editor.apply();
-            printLog("Updating hook location", true);
+            printLog("Updating h00k location", true);
             findAndUpdateHookTarget(sharedPreferences);
             return;
         }
@@ -124,7 +124,7 @@ public class ReconnectManagerFix extends XposedModule {
             editor.putLong("gms_version_code", versionCode);
             editor.putBoolean("enable", false);
             editor.apply();
-            printLog("Updating hook location", true);
+            printLog("Updating h00k location", true);
             findAndUpdateHookTarget(sharedPreferences);
             return;
         }
@@ -258,14 +258,14 @@ public class ReconnectManagerFix extends XposedModule {
                                             editor.putBoolean("enable", true);
                                             editor.apply();
                                             isFinish[0] = true;
-                                            printLog("Update hook position successfully", true);
+                                            printLog("Update h00k position successfully", true);
                                             sendNotification("Autoupdate configuration file succeeded");
                                             startHook();
                                             return;
                                         }
                                     }
                                 }
-                                printLog("Automatically searching for hook points failed: target method not found", true);
+                                printLog("Automatically searching for h00k points failed: target method not found", true);
                             }
                         }
                     });
@@ -274,8 +274,8 @@ public class ReconnectManagerFix extends XposedModule {
             }
         }catch (Throwable e){
             editor.putBoolean("enable", false);
-            printLog("Autofind hook point failed"+e.getMessage(), true);
-            this.sendNotification("Autoupdate configuration file failed", "Failed to find hook point, disable reconnection repair and fix heartbeat functions.");
+            printLog("Autofind h00k point failed"+e.getMessage(), true);
+            this.sendNotification("Autoupdate configuration file failed", "Failed to find h00k point, disable reconnection repair and fix heartbeat functions.");
             e.printStackTrace();
         }
         editor.apply();

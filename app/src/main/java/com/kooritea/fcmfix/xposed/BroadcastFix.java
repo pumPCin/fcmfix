@@ -21,7 +21,7 @@ public class BroadcastFix extends XposedModule {
         try{
             this.startHook();
         }catch (Exception e) {
-            printLog("hook error com.android.server.am.ActivityManagerService.broadcastIntentLocked:" + e.getMessage());
+            printLog("h00k error com.android.server.am.ActivityManagerService.broadcastIntentLocked:" + e.getMessage());
         }
     }
 
@@ -108,7 +108,7 @@ public class BroadcastFix extends XposedModule {
                     }
                     if(parameters[i].getType() == Intent.class){
                         if(intent_args_index != 0){
-                            printLog("Multiple Intents are found, stop searching for hook locations.");
+                            printLog("Multiple Intents are found, stop searching for h00k locations.");
                             intent_args_index = 0;
                             break;
                         }
@@ -116,14 +116,14 @@ public class BroadcastFix extends XposedModule {
                     }
                 }
                 if(intent_args_index != 0 && appOp_args_index != 0){
-                    printLog("Current hook position is obtained through fuzzy search, fcmfix may not work properly.");
+                    printLog("Current h00k position is obtained through fuzzy search, fcmfix may not work properly.");
                 }
             }
             printLog("Android API: " + Build.VERSION.SDK_INT);
             printLog("appOp_args_index: " + appOp_args_index);
             printLog("intent_args_index: " + intent_args_index);
             if(intent_args_index == 0 || appOp_args_index == 0){
-                printLog("broadcastIntentLocked hook location lookup fails, fcmfix will not work.");
+                printLog("broadcastIntentLocked h00k location lookup fails, fcmfix will not work.");
                 return;
             }
             final int finalIntent_args_index = intent_args_index;

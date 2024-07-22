@@ -26,10 +26,10 @@ public class XposedMain implements IXposedHookLoadPackage {
         }
         if(loadPackageParam.packageName.equals("android")){
 
-            XposedBridge.log("[fcmfix] start hook com.android.server.am.ActivityManagerService");
+            XposedBridge.log("[fcmfix] start h00k com.android.server.am.ActivityManagerService");
             new BroadcastFix(loadPackageParam);
 
-            XposedBridge.log("[fcmfix] start hook com.android.server.notification.NotificationManagerServiceInjector");
+            XposedBridge.log("[fcmfix] start h00k com.android.server.notification.NotificationManagerServiceInjector");
             new MiuiLocalNotificationFix(loadPackageParam);
 
             XposedBridge.log("[fcmfix] com.android.server.am.BroadcastQueueInjector.checkApplicationAutoStart");
@@ -40,12 +40,12 @@ public class XposedMain implements IXposedHookLoadPackage {
         }
 
         if(loadPackageParam.packageName.equals("com.google.android.gms") && loadPackageParam.isFirstApplication){
-            XposedBridge.log("[fcmfix] start hook com.google.android.gms");
+            XposedBridge.log("[fcmfix] start h00k com.google.android.gms");
             new ReconnectManagerFix(loadPackageParam);
         }
 
         if(loadPackageParam.packageName.equals("com.miui.powerkeeper") && loadPackageParam.isFirstApplication){
-            XposedBridge.log("[fcmfix] start hook com.miui.powerkeeper");
+            XposedBridge.log("[fcmfix] start h00k com.miui.powerkeeper");
             new PowerkeeperFix(loadPackageParam);
         }
 
